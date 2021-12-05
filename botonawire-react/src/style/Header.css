@@ -1,0 +1,44 @@
+.header {
+    background-color: white;
+    display: flex;
+    flex-grow: 0;
+    overflow: hidden;
+}
+
+.header .left {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    min-width: 20px;
+    flex: 1;
+}
+
+.header .left .bars {
+    margin-left: 15%;
+}
+
+.header .center {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .center img.logo {
+    height: 50%;
+}
+
+.header .right {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    width: auto;
+    height: auto;
+    min-width: 20px;
+    flex: 1;
+}
+
+.header .right .profile {
+    margin-right: 15%;
+}

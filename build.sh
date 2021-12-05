@@ -3,7 +3,7 @@
 BASE=$PWD
 BUILD=$BASE/build
 REACT=$BASE/botonawire-react
-API=$BASE/botonawire-api
+API=$BASE/botonawire-backend
 
 if [ ! -d $BUILD ] 
 then

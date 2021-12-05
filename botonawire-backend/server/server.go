@@ -3,6 +3,7 @@ package server
 import (
 	"crypto/rand"
 	"encoding/binary"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
@@ -110,6 +111,14 @@ func HandleRobot(conn net.Conn, client *Client) {
 			client.Mutex.Lock()
 			client.TimeOfLastHeartbeat = time.Now()
 			client.Mutex.Unlock()
+		case 2: // GPS Data
+			var gps GPS
+			json.Unmarshal(p.Data, &gps)
+			client.Mutex.Lock()
+			client.Latitude = gps.Latitude
+			client.Longitude = gps.Longitude
+			client.Altitude = gps.Altitude
+			client.Speed = gps.Speed
 		}
 	}
 }
