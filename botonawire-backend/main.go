@@ -13,6 +13,7 @@ func startServer() {
 	http.HandleFunc("/forward", api.ForwardRobot)
 	http.HandleFunc("/backward", api.BackwardRobot)
 	http.HandleFunc("/stop", api.StopRobot)
+	http.HandleFunc("/led", api.TurnOnLED)
 }
 
 func main() {

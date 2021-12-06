@@ -16,11 +16,25 @@ class App extends React.Component {
       this.setState({ currentRobotParams: robot })
   }
 
+  componentDidMount() {
+    fetch('/robots').then(res => res.json()).then(data => {
+      if(data != null) {
+        this.setState({ robots: data })
+      }
+    })
+
+    this.interval = setInterval(() => (fetch('/robots').then(res => res.json()).then(data => {
+      if(data != null) {
+        this.setState({ robots: data })
+      }
+    })), 10000)
+  }
+
   render() {
     return (
       <div class="background-container">
         <Header />
-        <RobotStatus />
+        <RobotStatus robot={this.props.robots[0]}/>
       </div>
     );
   }

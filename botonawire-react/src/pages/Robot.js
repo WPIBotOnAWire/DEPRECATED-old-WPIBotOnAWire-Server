@@ -5,6 +5,9 @@ import MapCard from "../components/MapCard";
 import "../style/App.css"
 
 class RobotStatus extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   render() {
     return (

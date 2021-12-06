@@ -65,3 +65,19 @@ func StopRobot(w http.ResponseWriter, r *http.Request) {
 
 	server.SendPacketToClient(robot.Uuid, 2, buf)
 }
+
+func TurnOnLED(w http.ResponseWriter, r *http.Request) {
+	robot := new(server.Robot)
+
+	r.ParseForm()
+	bytes, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
+
+	json.Unmarshal(bytes, robot)
+
+	buf := make([]byte, 4)
+
+	server.SendPacketToClient(robot.Uuid, 4, buf)
+}
